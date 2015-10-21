@@ -1,0 +1,12 @@
+功能
+1、RESTful 接口，符合HATEOAS标准
+2、Spring Boot
+3、安全认证机制
+4、缓存 reddis
+5、feed系统 mongodb
+6、mysql
+7、日志系统 kafka
+8、扩展性强
+9、消息队列 RabbitQ
+10、Java8 新特性 lambda
+11、Nio  异步  Executor框架  Netty
