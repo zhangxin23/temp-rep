@@ -1,0 +1,143 @@
+2016-01-08 09:07:00
+	1、工具
+		hype  webstorm
+	2、中文w3school内容太老了。最好看英文w3school。
+	3、HTML5语义化标签，font标签最好不要用，DIV标签同样如此。
+	4、doctype指明文档采用的标准。
+	5、标签
+		1、aside 定义页面之外的内容，非常常用的标签。在移动端不输出此标签，在PC端再输出。
+		2、canvas 定义图形
+		3、datalist 定义下拉列表
+		4、header
+		5、footer
+		6、keygen 现在主流浏览器都不支持
+		7、mark 对文本内容加标记
+		8、nav 导航标签
+		9、section 一个块节点，块单位。
+	6、支持多媒体的标签
+		1、audio和video标签
+	7、canvas标签只支持2D，现在不支持3D
+	8、cammand标签现在不要用，兼容性不好
+	9、b标签标示内联文本，通常是粗体，没有传递表示重要的意思
+	10、增强form，output属性。
+	11、CSS中可以加入内容信息，注意before和after
+	12、CSS可以是动态的。SASS是ruby的解释器。
+
+2016-01-08 13:00:00
+	1、CSS选择器当使用::时，表示伪对象选择器
+	2、websocket commet 服务器推送技术SSE
+	3、sass语法，compass用法
+	4、网格布局技术
+	5、不使用sass，对h1, h2, h3, p标签进行排版，所有文字都在每行正中间。
+
+2016-01-11 09:00:00
+	1、javascript
+		1、aptana IDE
+		2、WEB开发的缓存问题
+		3、javascript是动态强类型。
+		4、四种类型：String, Number, 空类型, NAN
+		5、任何全局变量，默认都是window域下的变量。window是全局对象。
+		6、javascript中变量有读、写两种模式。在写模式中，如果变量不存在，那么会在内存中分配一个空间用于存变量，但是读模式中，如果不存在，则不会创建。
+		7、script标签写在Body下面，可以在页面渲染后，再加载js。采用回调函数的方法。
+		8、for循环会有独立的作用域，变量会独立申请定义。
+		9、自执行函数：(function() {})()
+		10、(function(c) {
+			if(!c) {
+				window.$={};
+			} else {
+				window[c] = {};
+			}
+		})('$');
+			上面是避免污染全局变量名的方法。
+			也可以实现私有变量和私有方法。
+
+		11、js命名空间封装
+			(function() {
+				var $2 = {};
+				window.$2 = $2;
+				function f1() {
+
+				}
+
+				$2.f = function() {
+					f1();
+				}
+			})();
+			$2.f();
+			实现私有变量和私有方法。
+
+			扩充上面的库的方法：
+
+			(function() {
+				var v = {};
+				window.$2.v = v;//这个地方需要判断是否已定义v
+			})();
+
+		12、BOM：browser object model的缩写，简称浏览器对象模型，都在window对象里面。
+		13、DOM：文档对象模型（Document Object Model，简称DOM），元素、属性、文本，在window.document对象中。
+		14、js在浏览器可以完成：操作DOM元素、操作BOM、无刷新异步功能、时间等。
+		15、《html5+javascript动画基础》比较不错的一本关于js动画设计的书。
+		16、《scriptdom高级程序设计》《javascript dom编程艺术》
+		17、node.js express框架
+		18、node pm2，pm2 是一个带有负载均衡功能的Node应用的进程管理器。
+		19、模板 ejs
+
+2015-01-18 09:00:00
+	1、AngularJS
+	2、屏幕参数的选定原则：
+		1、最先看Density参数
+			超过280dpi就是视网膜屏，决定网页缩放比
+		2、然后看分辨率
+			更关注设备的宽度，决定素材大小
+		3、最后设备大小
+			决定放哪些内容
+	3、沉浸式设备
+	4、在安卓端，最好开发混合APP，不要开发web APP
+	5、NI，自然交互界面。
+	6、技术前瞻性，要提前布局。
+	7、交互方式要参照物理现实世界的交互方式。
+	8、防止交互方式设计过度。神秘谷极点。
+	9、没有什么比及时给用户反馈更加重要。
+	10、在开发web应用时，不能用click事件以及链接方式。
+	11、《Node.js+MongoDB+AngularJS Web开发》
+	12、用angularJS 2
+	13、用angularJS做单页应用程序交互，最好不用链接跳转方式。
+	14、资源管理：CoffeScript:管理javascript, Sass(管理CSS)
+	15、mariaDB替换mysql
+	16、图表类应用库
+		echarts：canvas实现，互联网项目应用
+		hcharts：svg实现，企业级项目应用
+	17、uuid（微博方式）, openid(微信方式)，用户转换为一个字符串(比如应用特别的算法，生成user的hash值)
+	18、防止别人篡改，可以使用签名。
+	19、如何保存token：
+		ios,安卓可以保存在本地
+		h5保存在本地或者sqlite
+
+		可在交换token时，使用https进行传输。
+
+		如果token被抓了，该如何解决？
+		可以加入时间戳参数。
+
+
+		token不发送
+
+		用时间参数计算签名。
+
+		uuid, 时间戳，token, 必要业务参数, url路径  计算  签名
+		判断时间是否超过30s，如果超过，则禁止。
+
+	20、API设计规范：
+		1、请求：time, version, guid, param, signature
+		2、响应：serverTime, ServerNo, ResultData
+			ServerNO: 错误类型，比如Token过期，签名错误
+		3、Client Message：为用户提示的信息
+		4、签名生成方法：
+			md5(path + time+ guid + cryToken + param)
+			一般采用不可逆算法，如md5类算法。
+
+	21、WebGL, Unity
+
+2016-01-20 09:00:00
+	1、行为驱动开发
+	2、js和os之间可以通过系统提供的API，互相传递数据。
+	3、Redis Hyperloglogs
